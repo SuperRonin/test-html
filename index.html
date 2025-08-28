@@ -7,8 +7,6 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Document</title>
-    <!-- vuejs -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
   </head>
   <style>
     body {
@@ -77,7 +75,6 @@
                           x5-video-orientation="landscape|portrait"
                           webkit-playsinline="“true”"
                           playsinline="“true”"
-                          @canplay="canplay($event)"
                         >
                           <source
                             src="https://cdn.huoduomei.com/goods_upload70992d008f7f11ef9637397edc8a5e20.mp4"
@@ -125,8 +122,12 @@
                         ><audio
                           controls="controls"
                           width="100%"
-                          src="http://m10.music.126.net/20250828161218/38518640db6217458f80a492fca9e153/ymusic/5353/0f0f/0358/d99739615f8e5153d77042092f07fd77.mp3?vuutv=Tsf0uUCR/0zafxLirIJW5y9FDnyFzPgN2VJgDtPFnhf3llbNcJusREuJgl6eMoNfy+LpDIHoiBGKOHNq1FutJkmHHR5PoQ6hiIy8LAh4Lw6OZpBGeQC5zQrhafEDaWezhquO+ROxav+BVWes3ysDnQ==&amp;cdntag=bWFyaz1vc193ZWIscXVhbGl0eV9zdGFuZGFyZA"
-                        ></audio
+                          preload="auto"
+                          style="margin: 0 auto; width: 100%"
+                        >
+                          <source
+                            src="http://m10.music.126.net/20250828161218/38518640db6217458f80a492fca9e153/ymusic/5353/0f0f/0358/d99739615f8e5153d77042092f07fd77.mp3?vuutv=Tsf0uUCR/0zafxLirIJW5y9FDnyFzPgN2VJgDtPFnhf3llbNcJusREuJgl6eMoNfy+LpDIHoiBGKOHNq1FutJkmHHR5PoQ6hiIy8LAh4Lw6OZpBGeQC5zQrhafEDaWezhquO+ROxav+BVWes3ysDnQ==&amp;cdntag=bWFyaz1vc193ZWIscXVhbGl0eV9zdGFuZGFyZA"
+                          /></audio
                       ></span>
                     </p>
                     <p class="paragraph text-align-type-left">
@@ -1485,20 +1486,4 @@
       </div>
     </div>
   </body>
-  <script>
-    new Vue({
-      el: '#app',
-      data: {
-        video: null,
-      },
-      methods: {
-        /* 视频播放 获取第一帧 */
-        canplay(event) {
-          setTimeout(() => {
-            event.target.pause() // 暂停播放视频 以此来获取封面
-          }, 200)
-        },
-      },
-    })
-  </script>
 </html>
