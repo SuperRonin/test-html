@@ -7,6 +7,8 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Document</title>
+    <!-- vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
   </head>
   <style>
     body {
@@ -69,11 +71,13 @@
                         ><video
                           controls="controls"
                           width="100%"
-                          preload="metadata"
+                          muted
+                          preload="auto"
                           x5-video-player-type="h5-page"
                           x5-video-orientation="landscape|portrait"
                           webkit-playsinline="“true”"
                           playsinline="“true”"
+                          @canplay="canplay($event)"
                         >
                           <source
                             src="https://cdn.huoduomei.com/goods_upload70992d008f7f11ef9637397edc8a5e20.mp4"
@@ -1481,4 +1485,20 @@
       </div>
     </div>
   </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        video: null,
+      },
+      methods: {
+        /* 视频播放 获取第一帧 */
+        canplay(event) {
+          setTimeout(() => {
+            event.target.pause() // 暂停播放视频 以此来获取封面
+          }, 200)
+        },
+      },
+    })
+  </script>
 </html>
